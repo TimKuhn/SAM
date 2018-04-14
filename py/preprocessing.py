@@ -43,7 +43,6 @@ def preProcessText(text, language="en", lower=False, removePunctuation=False, le
     else:
         print("{} is not a valid language model".format(language))
 
-
     # Lemmatizing
     if lemma:
         doc = nlp(text)
@@ -53,6 +52,5 @@ def preProcessText(text, language="en", lower=False, removePunctuation=False, le
     if stemmer:
         text = _porterStemmer(text)
 
-    print(text)
 
     return text
