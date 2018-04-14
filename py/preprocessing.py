@@ -10,9 +10,9 @@ def _loadSpacyModel(lang):
 def _porterStemmer(text):
     stemmer = PorterStemmer()
     sents = sent_tokenize(text)
-    word_tokens = " ".join([word_tokenize(sent) for sent in sents])
+    word_tokens = [" ".join(word_tokenize(sent)) for sent in sents]
     stemmed_word_tokens = [stemmer.stem(word_token) for word_token in word_tokens]
-    return stemmed_word_tokens
+    return " ".join(stemmed_word_tokens)
 
 def _lemmatizer(doc):
     return " ".join([token.lemma_ for token in doc])
@@ -53,5 +53,6 @@ def preProcessText(text, language="en", lower=False, removePunctuation=False, le
     if stemmer:
         text = _porterStemmer(text)
 
+    print(text)
 
     return text
