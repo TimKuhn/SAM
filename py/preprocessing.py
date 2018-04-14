@@ -38,19 +38,17 @@ def preProcessText(text, language="en", lower=False, removePunctuation=False, le
     validLanguages = {"en": _loadSpacyModel,
                       "de": _loadSpacyModel}
 
-    if language in validLanguages:
-        nlp = validLanguages[language](language)
-    else:
-        print("{} is not a valid language model".format(language))
-
     # Lemmatizing
     if lemma:
-        doc = nlp(text)
-        text = _lemmatizer(doc)
-
+        if language in validLanguages:
+            nlp = validLanguages[language](language)
+            doc = nlp(text)
+            text = _lemmatizer(doc)
+        else:
+            print("{} is not a valid language model".format(language))
+            
     # Stemmer
     if stemmer:
         text = _porterStemmer(text)
-
 
     return text
