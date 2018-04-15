@@ -8,14 +8,6 @@ Author: Tim Dilmaghani
 
 from nltk import ngrams
 
-from sklearn import svm
-
-
-#svm = svm.SVC()
-
-#ngrams()
-
-
 def _jaccardCoefficient(user, item):
     """ 
     Returns a floating point similarity score
@@ -164,9 +156,3 @@ def nGramRecommendation(user, items, top_n=5, n=2, pad_left=False, pad_right=Fal
     topNitemsAndSimScores = _sortScoresAndReturnTopMatches(itemsAndSimScores, top_n)
 
     return topNitemsAndSimScores
-
-testItems = ["Non-current assets", "Current assets beer", "Other assets", "more assets", "Assets for all", "beer for all", "all for nothing"]
-
-result = nGramRecommendation("Current assets beer", testItems)
-
-print(result)
