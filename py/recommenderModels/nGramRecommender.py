@@ -159,10 +159,10 @@ def nGramRecommendation(user, items, top_n=5, n=2, pad_left=False, pad_right=Fal
 
 #TODO: Also work with index as in LSI Model? 
 
-user = "Current assets"
+#user = "Current assets"
 
-items = ["assets under construction", "long-term assets", "current assets", "Current assets", "beer is great", "Feierabend"]
+#items = ["assets under construction", "long-term assets", "current assets", "Current assets", "beer is great", "Feierabend"]
 
-result = nGramRecommendation(user, items)
+#result = nGramRecommendation(user, items)
 
 #print(result)

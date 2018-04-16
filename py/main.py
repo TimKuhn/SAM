@@ -1,5 +1,4 @@
-from fileupload import loadFile
-from preprocessing import preProcessText
+from inputs.fileupload import loadFile
 from recommenderModels.latentSemanticIndexing import lsiRecommendatition
 from recommenderModels.nGramRecommender import nGramRecommendation
 
@@ -7,11 +6,7 @@ src = loadFile("../data/coa_target_src.xlsx", headerRow=1, columnIndex=0)
 
 users = [user for user in src.iloc[:,0]]
 
-#print(users)
-
 items = list(set(list(set([str(item) for item in src.iloc[:,1]])) + list(set([str(item) for item in src.iloc[:,2]])) + list(set([str(item) for item in src.iloc[:,3]]))))
-
-
 
 for user in users:
     print("="*50)

@@ -104,10 +104,10 @@ def lsiRecommendatition(user, items, top_n=5, n_components=6, distanceMetric="co
 
     return topNitemAndDistance
 
-user = "Current assets"
+#user = "Current assets"
 
-items = ["more assets", "lederhose", "eigenkapital", "fremdkapital", "assets under construction", "long-term assets", "current assets", "Current assets", "beer is great", "Feierabend"]
+#items = ["more assets", "lederhose", "eigenkapital", "fremdkapital", "assets under construction", "long-term assets", "current assets", "Current assets", "beer is great", "Feierabend"]
 
-result = lsiRecommendatition(user, items)
+#result = lsiRecommendatition(user, items)
 
 #print(result)
