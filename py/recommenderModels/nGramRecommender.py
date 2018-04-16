@@ -165,4 +165,4 @@ items = ["assets under construction", "long-term assets", "current assets", "Cur
 
 result = nGramRecommendation(user, items)
 
-print(result)
+#print(result)

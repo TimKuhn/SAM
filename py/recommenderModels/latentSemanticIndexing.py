@@ -10,16 +10,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import pairwise_distances, euclidean_distances
 
-#from nltk.tokenize import RegexpTokenizer
-#from nltk.stem import LancasterStemmer
-#import spacy, pandas as pd
-#import numpy as np
-#import re
-#from stop_words import get_stop_words
-
 def _calculateCosineDistanceMatrix(query_vector, svd_matrix):
     """
     #TODO: DOCSTRING
+
+    Parameters:
+    -----------
+    query_vector: 
 
     """
 
@@ -43,9 +40,11 @@ def _sortScoresAndReturnTopMatches(scores, top_n):
     return sorted(scores, key=lambda scores: scores[1])[:top_n]
 
 
-def lsiRecommendatition(user, items, top_n=5, n_components=300, distanceMetric="cosine"):
+def lsiRecommendatition(user, items, top_n=5, n_components=6, distanceMetric="cosine"):
     """
     Compute query-document similarity scores in a low-rank document representation using SVD
+
+    Returns the distance between the user and each item -> 0.0 = best match 
 
     Parameters:
     -----------
@@ -66,14 +65,17 @@ def lsiRecommendatition(user, items, top_n=5, n_components=300, distanceMetric="
     """
 
     # Init TFIDF Vectorizer
-    vectorizer = TfidfVectorizer(use_idf=True, smooth_idf=True)
+    vectorizer = TfidfVectorizer(lowercase=False, 
+                                 use_idf=True, 
+                                 smooth_idf=True)
     
     # Init SVD Model
 
     # TODO: FEATURES MUST BE LOWER THAN N_COMPONENTS 
     # TODO: NEEDs CHECK
+    # TODO: Parameter tuning (what is good?)
 
-    svd_model = TruncatedSVD(n_components=6,
+    svd_model = TruncatedSVD(n_components=n_components,
                              algorithm="randomized",
                              n_iter=10,
                              random_state=42)
@@ -108,4 +110,4 @@ items = ["more assets", "lederhose", "eigenkapital", "fremdkapital", "assets und
 
 result = lsiRecommendatition(user, items)
 
-print(result)
+#print(result)
