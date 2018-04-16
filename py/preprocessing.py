@@ -8,6 +8,7 @@ def _loadSpacyModel(lang):
     return spacy.load(lang)
 
 def _porterStemmer(text):
+    #TODO: ADD LANGUAGE AWARE STEMMER
     stemmer = PorterStemmer()
     sents = sent_tokenize(text)
     word_tokens = [" ".join(word_tokenize(sent)) for sent in sents]

@@ -156,3 +156,13 @@ def nGramRecommendation(user, items, top_n=5, n=2, pad_left=False, pad_right=Fal
     topNitemsAndSimScores = _sortScoresAndReturnTopMatches(itemsAndSimScores, top_n)
 
     return topNitemsAndSimScores
+
+#TODO: Also work with index as in LSI Model? 
+
+user = "Current assets"
+
+items = ["assets under construction", "long-term assets", "current assets", "Current assets", "beer is great", "Feierabend"]
+
+result = nGramRecommendation(user, items)
+
+print(result)
