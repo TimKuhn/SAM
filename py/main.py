@@ -7,7 +7,10 @@ from recommenderModels.editDistance import editStringDistance
 from termcolor import cprint 
 
 #TODO: If top1 result has distance of >0.9 does it indicate that a new 
-# account should be added to the chart of accounts
+#TODO: account should be added to the chart of accounts
+#TODO: Bigram/Trigram combinations
+#TODO: Add TAGS to accounts (e.g (assets|liab|equity), (IC|No IC), (short-term|long-term))
+
 
 src = loadFile("../data/coa_target_src.xlsx", headerRow=1, columnIndex=0)
 
